@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if books_list %}
+<ul>
+{% for book in books_list %}
+    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.display_author}})</br>
+{% endfor %}
+</ul>
+{% else %}
+<p>В библиотеке книг нет.</p>
+{% endif %}
+<a href="{% url 'book_create' %}"><button class="btn btn-success">Добавить</button></a>
+{% endblock %}

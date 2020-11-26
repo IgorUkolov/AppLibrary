@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+
+        Вы действительно хотите удалить <b>"{{ obj }}"</b>?
+        <a href="{{ author.get_absolute_url }}">Отмена</a>
+        <button type="submit" name="button" class="btn btn-danger">Удалить</button>
+    </h2>
+</form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+  <h1>Название: {{ book.title }}</h1>
+
+  <p><strong>Автор:</strong>{{ book.display_author }}</p>
+  <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+  <p><strong>Год издания:</strong> {{ book.YearEdition }}</p>
+  <p><strong>Описание:</strong> {{ book.description }}</p>
+  <p><strong>Жанр:</strong> {% for genre in book.genre.all %} {{ genre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+<a href="{% url 'book_delete' book.id %}"><button  type="submit" name="button" class="btn btn-danger">Удалить</button></a>
+<a href="{% url 'book_edit' book.id %}"><button  type="submit" name="button" class="btn btn-warning">Редактировать</button></a>
+{% endblock %}

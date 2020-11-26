@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if object_list %}
+<ul>
+{% for genre in object_list %}
+    <a href="{{ genre.get_absolute_url }}">{{ genre.name }}</a></br>
+{% endfor %}
+</ul>
+{% else %}
+<p>В библиотеке книг нет.</p>
+{% endif %}
+<a href="{% url 'genre_create' %}"><button class="btn btn-success">Создать</button></a>
+{% endblock %}

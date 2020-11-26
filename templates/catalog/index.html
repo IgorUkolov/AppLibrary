@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home page - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+                 <ul class="sidebar-nav">
+              <li><a href="{% url 'books' %}">All books: {{ count_book }} </a></li>
+              <li><a href="{% url 'authors' %}">All authors: {{ count_author }} </a></li>
+              <li><a href="{% url 'genres' %}">All genres: {{ count_genre }} </a></li>
+                </ul>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ object.name }}:</h1>
+<h2>Количество: {{ books_count }}</h2>
+<a href="{% url 'genre_delete' genre.id %}"><button  type="submit" name="button" class="btn btn-danger">Удалить</button></a>
+<a href="{% url 'genre_edit' genre.id %}"><button  type="submit" name="button" class="btn btn-warning">Редактировать</button></a>
+{% if books %}
+    <ul>
+    {% for book in books %}
+        <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Увы, книг с этим жанром пока еще нету</p>
+{% endif %}
+{% endblock %}
+
